@@ -3,7 +3,7 @@ package tr.com.tolaas.springdi.services;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-@Profile("TU")
+@Profile({"TU", "default"})
 @Service("languageService")
 public class LanguageServiceTurkishImpl implements LanguageService {
 
