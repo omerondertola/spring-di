@@ -3,11 +3,7 @@ package tr.com.tolaas.springdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import tr.com.tolaas.springdi.controller.ConstructorInjectedController;
-import tr.com.tolaas.springdi.controller.MyController;
-import tr.com.tolaas.springdi.controller.PropertyInjectedController;
-import tr.com.tolaas.springdi.controller.SetterInjectedController;
+import tr.com.tolaas.springdi.controller.*;
 
 @SpringBootApplication
 public class SpringDiApplication {
@@ -15,10 +11,12 @@ public class SpringDiApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(SpringDiApplication.class, args);
 
+        LanguageAwareController languageAwareController = (LanguageAwareController) context.getBean("languageAwareController");
+        System.out.println(languageAwareController.getLabelString("hello"));
+
         MyController ctrl = (MyController) context.getBean("myController");
         String msg = ctrl.sayHello();
         System.out.println("Bean Says:" + msg);
-
 
         System.out.println("**** Property Injection ****");
         PropertyInjectedController controller = (PropertyInjectedController) context.getBean("propertyInjectedController");
