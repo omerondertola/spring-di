@@ -2,9 +2,7 @@ package tr.com.tolaas.springdi.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tr.com.tolaas.springdi.services.GreetingServiceImpl;
-
-import static org.junit.jupiter.api.Assertions.*;
+import tr.com.tolaas.springdi.services.ConstructorGreetingService;
 
 class ConstructorInjectedControllerTest {
 
@@ -12,7 +10,7 @@ class ConstructorInjectedControllerTest {
 
     @BeforeEach
     void setUp() {
-        GreetingServiceImpl greetingService = new GreetingServiceImpl();
+        ConstructorGreetingService greetingService = new ConstructorGreetingService();
         controller = new ConstructorInjectedController(greetingService);
     }
 
